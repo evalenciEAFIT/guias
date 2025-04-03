@@ -148,3 +148,81 @@ def lambda_handler(event, context):
         'body': json.dumps({'message': 'Método no funciona'}),
         'headers': {'Content-Type': 'application/json'}
     }
+```
+
+4. **Guarda el código**:
+   - Haz clic en Deploy (arriba del editor).
+     
+¿Qué hace este código?
+Conecta: Une el programa con tu caja de datos (TransaccionesBancarias).
+Busca (GET): Mira en la dirección web el número de cuenta y busca sus transacciones.
+Guarda (POST): Toma datos (cuenta, tipo, monto), los revisa y los guarda en la caja.
+¡Lo lograste!
+¡Tu programa ya sabe qué hacer! Puede guardar y buscar transacciones. Es como el cerebro de tu idea.
+Paso 3: Dale permisos al programa (IAM)
+¿Qué es esto?
+Le diremos a AWS que tu programa puede usar la caja de datos con IAM.
+
+¿Cómo lo hago?
+Ve a IAM:
+Busca "IAM" en AWS y entra.
+Crea un permiso:
+Haz clic en Roles (a la izquierda) > Crear rol.
+Elige AWS Service y luego Lambda.
+Haz clic en Siguiente: Permisos.
+Dale poderes:
+Busca y marca:
+AWSLambdaBasicExecutionRole (para escribir notas).
+AmazonDynamoDBFullAccess (para usar la caja).
+Haz clic en Siguiente: Etiquetas (salta) > Siguiente: Revisión.
+Nombre: Escribe LambdaBancaRole.
+Haz clic en Crear rol.
+Conecta el permiso:
+Vuelve a Lambda > BancaMicroservicio.
+En Configuración > Permisos, cambia el rol por LambdaBancaRole.
+¡Lo lograste!
+¡Tu programa tiene permiso para trabajar! Ahora puede usar la caja sin problemas.
+Paso 4: Haz una dirección web (API Gateway)
+¿Qué es esto?
+Con API Gateway, crearemos una dirección web para usar tu programa desde el navegador.
+
+¿Cómo lo hago?
+Ve a API Gateway:
+Busca "API Gateway" en AWS y entra.
+Crea tu dirección:
+Haz clic en Crear API > API REST > Nueva API.
+Nombre: Escribe BancaAPI.
+Haz clic en Crear API.
+Agrega una palabra:
+En Acciones, elige Crear recurso.
+Nombre: Escribe transacciones.
+Haz clic en Crear recurso.
+Crea dos botones:
+Selecciona /transacciones y en Acciones > Crear método.
+GET:
+Tipo: Lambda.
+Región: La misma de tu programa.
+Función: BancaMicroservicio.
+Haz clic en Guardar.
+POST:
+Repite para POST.
+Abre la puerta (CORS):
+En Acciones, elige Habilitar CORS.
+Marca GET y POST, luego haz clic en Habilitar CORS y reemplazar....
+Lanza tu dirección:
+En Acciones, elige Deploy API.
+Etapa: Escribe "prod".
+Haz clic en Deploy.
+Copia la URL que aparece (ej. https://<id>.execute-api.<region>.amazonaws.com/prod).
+¡Lo lograste!
+¡Tienes una dirección web! Ahora puedes usar tu programa desde cualquier navegador.
+Paso 5: Usa tu programa desde el navegador
+¿Qué es esto?
+Vamos a probar tu programa con una dirección web y un formulario fácil.
+
+¿Cómo lo hago?
+Mira transacciones:
+En tu navegador, escribe: https://<tu-dirección>/transacciones?cuenta=12345.
+Si no hay nada, verás: {"message": "No hay transacciones para esa cuenta"}.
+Guarda transacciones:
+Copia este código en un archivo llamado index.html:
