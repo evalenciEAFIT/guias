@@ -19,7 +19,7 @@ Vamos a crear una "caja" en AWS llamada **DynamoDB** donde guardaremos las trans
    - Ve a [console.aws.amazon.com](https://console.aws.amazon.com/) y pon tu usuario y contraseña.
 2. **Busca DynamoDB**:
    - Arriba, en la barra de búsqueda, escribe "DynamoDB" y haz clic en él.
-3. **Crea tu caja**:
+3. **Crea tu tabla**:
    - Haz clic en **Crear tabla**.
    - **Nombre**: Escribe `TransaccionesBancarias`.
    - **Clave de partición**: Escribe `cuenta` y elige "String" (es como el número de cuenta).
