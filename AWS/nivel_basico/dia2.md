@@ -68,9 +68,8 @@ Amazon DynamoDB es una base de datos NoSQL gestionada que almacena datos en form
    - Ve a la pestaña "Elementos" dentro de la tabla `CuentasBancarias`.
       ![DynamoDB](imagenes/AWS2-03.png)
    - Haz clic en "Crear elemento" y agrega manualmente:
-      ![DynamoDB](imagenes/AWS2-04.png)
+      ![DynamoDB](imagenes/AWS2-04.png)  ![DynamoDB](imagenes/AWS2-05.png)  
       - FORMATO JSON DynamoBD
-        ![DynamoDB](imagenes/AWS2-05.png) 
      ```json
      {
         "account_id": {
@@ -85,7 +84,6 @@ Amazon DynamoDB es una base de datos NoSQL gestionada que almacena datos en form
       }
      ```
      - FORMATO JSON
-       - ![DynamoDB](imagenes/AWS2-06.png)
      ```json
      {
        "account_id": "12345",
@@ -93,3 +91,4 @@ Amazon DynamoDB es una base de datos NoSQL gestionada que almacena datos en form
        "balance": 1500.75
       }
      ```
+     ![DynamoDB](imagenes/AWS2-06.png)
