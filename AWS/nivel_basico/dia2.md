@@ -1,4 +1,6 @@
 # Guía Completa: Crear un Servicio en AWS con Lambda y DynamoDB para Consultar Saldos Bancarios
+Este documento se basa en tecnologías disponibles al 03 de abril de 2025.
+
 
 ## Descripción del Ejemplo a Desarrollar
 
@@ -20,7 +22,6 @@ El resultado será un sistema funcional que cualquier institución bancaria podr
 - Conocimientos básicos de AWS, Python, y HTML/JavaScript (aunque explicaremos cada paso).
 - Postman instalado o acceso a [https://app.getpostman.com](https://app.getpostman.com).
 - Un navegador web moderno (Chrome, Firefox, etc.).
-- Fecha actual: Este documento se basa en tecnologías disponibles al 03 de abril de 2025.
 
 ---
 
