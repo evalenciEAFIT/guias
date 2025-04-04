@@ -97,13 +97,13 @@ Amazon DynamoDB es una base de datos NoSQL gestionada que almacena datos en form
 - Así se crea un registro en la base de datos.
       ![DynamoDB](imagenes/AWS2-08.png)
 
-### Paso 3: Crear una Función Lambda
+## Paso 3: Crear una Función Lambda
 
-## Descripción de la Tecnología y Propósito
+### Descripción de la Tecnología y Propósito
 
 AWS Lambda es un servicio de cómputo serverless que ejecuta código en respuesta a eventos (como solicitudes HTTP). No requiere gestión de servidores, lo que reduce costos y complejidad, ideal para operaciones bancarias frecuentes como consultas de saldo. En este caso, Lambda recuperará datos de DynamoDB según el `account_id` recibido.
 
-## Instrucciones
+### Instrucciones
 
 1.  **Accede a Lambda:** En la consola AWS, busca "Lambda" y selecciona "Crear función".
 2.  **Configura la función:**
