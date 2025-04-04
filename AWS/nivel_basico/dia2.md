@@ -56,6 +56,7 @@ Amazon DynamoDB es una base de datos NoSQL gestionada que almacena datos en form
 #### Instrucciones
 1. **Accede a DynamoDB**:
    - En la consola AWS, busca "DynamoDB" en la barra de servicios y haz clic en él.
+   - ![DynamoDB](AWS2-01.png)
 2. **Crea una tabla**:
    - Haz clic en "Crear tabla".
    - **Nombre de la tabla**: `CuentasBancarias`.
