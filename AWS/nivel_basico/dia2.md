@@ -69,8 +69,14 @@ Amazon DynamoDB es una base de datos NoSQL gestionada que almacena datos en form
    - Haz clic en "Crear elemento" y agrega manualmente:
      ```json
      {
-       "account_id": "12345",
-       "customer_name": "Juan Pérez",
-       "balance": 1500.75
-     }
+        "account_id": {
+          "S": "12345"
+        },
+        "customer_name": {
+          "S": "\"Edison Valencia\""
+        },
+        "balance": {
+          "N": "1500.75"
+        }
+      }
      ```
