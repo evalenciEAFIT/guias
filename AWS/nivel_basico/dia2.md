@@ -76,13 +76,14 @@ Amazon DynamoDB es una base de datos NoSQL gestionada que almacena datos en form
           "S": "12345"
         },
         "customer_name": {
-          "S": "\"Edison Valencia\""
+          "S": "Edison Valencia"
         },
         "balance": {
           "N": "1500.75"
         }
       }
      ```
+     ![DynamoDB](imagenes/AWS2-06.png)
      - FORMATO JSON
      ```json
      {
@@ -91,4 +92,4 @@ Amazon DynamoDB es una base de datos NoSQL gestionada que almacena datos en form
        "balance": 1500.75
       }
      ```
-     ![DynamoDB](imagenes/AWS2-06.png)
+     ![DynamoDB](imagenes/AWS2-07.png)
