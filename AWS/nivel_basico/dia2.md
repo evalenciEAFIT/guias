@@ -113,7 +113,10 @@ AWS Lambda es un servicio de cómputo serverless que ejecuta código en respuest
     * **Runtime:** Python 3.9 (puedes usar Node.js u otro si prefieres, ajustando el código).
     * **Rol de ejecución:** Usa el rol predeterminado por ahora (lo ajustaremos en el siguiente paso).
     * Haz clic en "Crear función".
-      ![DynamoDB](imagenes/AWS2-10.png)
+      ![DynamoDB](imagenes/AWS2-10.png)   
+      ![DynamoDB](imagenes/AWS2-11.png)   
+      ![DynamoDB](imagenes/AWS2-12.png)   
+      
 4.  **Escribe el código:** En el editor de Lambda, reemplaza el contenido con:
 
     ```python
@@ -160,13 +163,15 @@ AWS Lambda es un servicio de cómputo serverless que ejecuta código en respuest
                 'body': json.dumps({'error': str(e)})
             }
     ```
-   ![DynamoDB](imagenes/AWS2-11.png)
+   ![DynamoDB](imagenes/AWS2-13.png)
     Este código:
     * Conecta a DynamoDB.
     * Busca un registro por `account_id`.
     * Devuelve el saldo o un error en formato JSON.
+    ![DynamoDB](imagenes/AWS2-14.png)
 
 5.  **Guarda el código:** Haz clic en "Deploy" para aplicar los cambios.
+      ![DynamoDB](imagenes/AWS2-15.png)
 
 # Paso 4: Configurar Permisos
 
