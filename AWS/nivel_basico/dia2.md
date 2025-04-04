@@ -94,8 +94,10 @@ Amazon DynamoDB es una base de datos NoSQL gestionada que almacena datos en form
      ```
      ![DynamoDB](imagenes/AWS2-07.png)
 
+- Así se crea un registro en la base de datos.
+      ![DynamoDB](imagenes/AWS2-08.png)
 
-# Paso 3: Crear una Función Lambda
+### Paso 3: Crear una Función Lambda
 
 ## Descripción de la Tecnología y Propósito
 
