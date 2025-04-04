@@ -106,13 +106,15 @@ AWS Lambda es un servicio de cómputo serverless que ejecuta código en respuest
 ### Instrucciones
 
 1.  **Accede a Lambda:** En la consola AWS, busca "Lambda" y selecciona "Crear función".
-2.  **Configura la función:**
+     ![DynamoDB](imagenes/AWS2-09.png)
+3.  **Configura la función:**
     * Elige "Crear desde cero".
     * **Nombre:** `ConsultarSaldo`.
     * **Runtime:** Python 3.9 (puedes usar Node.js u otro si prefieres, ajustando el código).
     * **Rol de ejecución:** Usa el rol predeterminado por ahora (lo ajustaremos en el siguiente paso).
     * Haz clic en "Crear función".
-3.  **Escribe el código:** En el editor de Lambda, reemplaza el contenido con:
+      ![DynamoDB](imagenes/AWS2-10.png)
+4.  **Escribe el código:** En el editor de Lambda, reemplaza el contenido con:
 
     ```python
     import json
@@ -158,13 +160,13 @@ AWS Lambda es un servicio de cómputo serverless que ejecuta código en respuest
                 'body': json.dumps({'error': str(e)})
             }
     ```
-
+   ![DynamoDB](imagenes/AWS2-11.png)
     Este código:
     * Conecta a DynamoDB.
     * Busca un registro por `account_id`.
     * Devuelve el saldo o un error en formato JSON.
 
-4.  **Guarda el código:** Haz clic en "Deploy" para aplicar los cambios.
+5.  **Guarda el código:** Haz clic en "Deploy" para aplicar los cambios.
 
 # Paso 4: Configurar Permisos
 
