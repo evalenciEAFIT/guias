@@ -9,24 +9,24 @@
 
 	<BODY>
        <H1>Formulario con el método GET</H1>
-       <FORM method="GET" action="/procesar-get">
+       <FORM method="GET" action="https://wzs51t4gbk.execute-api.us-east-1.amazonaws.com/prod/procesar-get">
           	<label for="nombre-get"> Nombre:</label>
             <input type="text" id="nombre-get" name="nombre" required>
             <br><br>
             <label for="nombre-get"> Fecha:</label>
-            <input type="date" id="nfecha-get" name="nfecha" required>
+            <input type="date" id="nfecha-get" name="fecha" required>
             <br><br>
             <button type="submit">Enviar (GET)</button>
             <button type="reset">Borrar campos</button>
        </FORM>
        
        <H1>Formulario con el método POST</H1>
-       <FORM method="POST" action="/procesar-post">
+       <FORM method="POST" action="https://wzs51t4gbk.execute-api.us-east-1.amazonaws.com/prod/procesar-post">
        		<label for="nombre-get"> Nombre:</label>
             <input type="text" id="nombre-get" name="nombre" required>
             <br><br>
             <label for="nombre-get"> Fecha:</label>
-            <input type="date" id="nfecha-get" name="nfecha" required>
+            <input type="date" id="nfecha-get" name="fecha" required>
             <br><br>
             <button type="submit">Enviar (POST)</button>
             <button type="reset">Borrar campos</button>
