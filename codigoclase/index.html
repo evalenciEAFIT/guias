@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	   <meta charset="UTF-8">
+       <meta name="viewport" content"width=device-width, initial-scale=1.0">
+       <title>Formulario GET y POST</title>
+    </head>
+
+
+	<BODY>
+       <H1>Formulario con el método GET</H1>
+       <FORM method="GET" action="/procesar-get">
+          	<label for="nombre-get"> Nombre:</label>
+            <input type="text" id="nombre-get" name="nombre" required>
+            <br><br>
+            <label for="nombre-get"> Fecha:</label>
+            <input type="date" id="nfecha-get" name="nfecha" required>
+            <br><br>
+            <button type="submit">Enviar (GET)</button>
+            <button type="reset">Borrar campos</button>
+       </FORM>
+       
+       <H1>Formulario con el método POST</H1>
+       <FORM method="POST" action="/procesar-post">
+       		<label for="nombre-get"> Nombre:</label>
+            <input type="text" id="nombre-get" name="nombre" required>
+            <br><br>
+            <label for="nombre-get"> Fecha:</label>
+            <input type="date" id="nfecha-get" name="nfecha" required>
+            <br><br>
+            <button type="submit">Enviar (POST)</button>
+            <button type="reset">Borrar campos</button>
+       </FORM>
+      
+      
+    </BODY>
+</html>
