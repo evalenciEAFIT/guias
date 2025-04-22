@@ -46,9 +46,6 @@ Estas guías rápidas te ayudarán a configurar y usar **Amazon DynamoDB**, **AW
 - Usa `us-east-1` para mantener consistencia con otros servicios.
 - Revisa el ARN para permisos en Lambda (Guía Lambda, Paso 3).
 
-**Conexión con tu experiencia**:
-
-- Creaste una tabla similar el 31 de marzo y 3 de abril de 2025 para un microservicio bancario. Esta guía simplifica esos pasos.
 
 ---
 
@@ -134,10 +131,6 @@ Estas guías rápidas te ayudarán a configurar y usar **Amazon DynamoDB**, **AW
 - Usa CloudWatch (**Monitor** &gt; **Ver registros**) para depurar errores como `httpMethod` (enfrentado el 7 de abril).
 - Asegúrate de que la tabla sea **Usuarios** (sensible a mayúsculas).
 
-**Conexión con tu experiencia**:
-
-- Similar a tus funciones Lambda para microservicios bancarios (31 de marzo y 7 de abril). Incluye validación de `httpMethod` para evitar errores previos.
-
 ---
 
 ## Guía Rápida: Usar Amazon API Gateway
@@ -188,9 +181,6 @@ Estas guías rápidas te ayudarán a configurar y usar **Amazon DynamoDB**, **AW
 - Desactiva **API Key** o **IAM** en **Configuración** si no los usas (Paso 2 de la respuesta anterior).
 - Redepliega tras cada cambio.
 
-**Conexión con tu experiencia**:
-
-- Basado en tu API de usuarios (3 y 8 de abril). Incluye CORS para resolver problemas con `index.html`.
 
 ---
 
@@ -293,10 +283,6 @@ Estas guías rápidas te ayudarán a configurar y usar **Amazon DynamoDB**, **AW
 **Ejemplo**: Envía correos cuando se crea un usuario.
 
 **Consejos**: Usa el **ARN del tema** desde SNS.
-
-**Conexión con tu experiencia**:
-
-- Inspirado en tu interés en microservicios bancarios (26 de marzo) donde mencionaste SQS y SNS para notificaciones.
 
 ---
 
