@@ -316,6 +316,6 @@ Estas guías rápidas te ayudarán a configurar y usar **Amazon DynamoDB**, **AW
 **Conexión con tu experiencia**:
 
 - Estas guías simplifican las configuraciones de tus microservicios y resuelven errores como **403 Forbidden** y CORS.
-- Incluyen pruebas con Postman y Python local (`probar_api.py`, 11 de abril) para alinear con tus métodos de prueba.
+- Incluyen pruebas con Postman y Python local (`probar_api.py`) para alinear con tus métodos de prueba.
 
 ---
