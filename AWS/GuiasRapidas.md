@@ -128,7 +128,7 @@ Estas guías rápidas te ayudarán a configurar y usar **Amazon DynamoDB**, **AW
 **Consejos**:
 
 - Verifica permisos para evitar **AccessDenied** (como tu error **403 Forbidden**).
-- Usa CloudWatch (**Monitor** &gt; **Ver registros**) para depurar errores como `httpMethod` (enfrentado el 7 de abril).
+- Usa CloudWatch (**Monitor** &gt; **Ver registros**) para depurar errores como `httpMethod`.
 - Asegúrate de que la tabla sea **Usuarios** (sensible a mayúsculas).
 
 ---
@@ -177,7 +177,7 @@ Estas guías rápidas te ayudarán a configurar y usar **Amazon DynamoDB**, **AW
 
 **Consejos**:
 
-- Configura CORS para evitar errores como **403 Forbidden** (enfrentado el 22 de abril).
+- Configura CORS para evitar errores como **403 Forbidden**.
 - Desactiva **API Key** o **IAM** en **Configuración** si no los usas (Paso 2 de la respuesta anterior).
 - Redepliega tras cada cambio.
 
