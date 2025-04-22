@@ -770,12 +770,3 @@ Si ves `{"mensaje": "Error: 'httpMethod'"}` en Postman, la página web, o el pro
 - Borramos todo para no dejar servicios corriendo que puedan costar dinero, aunque estén en el nivel gratuito.
 - Esto mantiene tu cuenta limpia y evita sorpresas en la facturación.
 
-## ¡Lo lograste!
-
-Ahora tienes una API con CRUD completo, una página web para usarla, y un programa Python para pruebas locales. Si ves `{"mensaje": "Error: 'httpMethod'"}`, usa el **Paso 9** para solucionarlo. Si aparece otro error, comparte:
-
-- El **error exacto** (por ejemplo, `{"mensaje": "Error: 'httpMethod'"}`).
-- El **JSON** enviado (en Postman, la página, o Python).
-- Los **registros de CloudWatch** (Paso 9.4).
-- La **URL** y **región** (debe ser `us-east-1`).
-
