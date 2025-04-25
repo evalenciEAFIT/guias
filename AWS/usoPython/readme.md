@@ -1,29 +1,30 @@
-Explicación de los Códigos de Cliente API
-Este documento explica los cuatro archivos Python (data.py, data1B.py, data2.py, data2B.py) que implementan un cliente para interactuar con una API de gestión de usuarios. Cada archivo representa una iteración progresiva en funcionalidad, desde un script básico hasta una interfaz de línea de comandos (CLI) avanzada con soporte para archivos Excel y registro de resultados. A continuación, se detalla el propósito de cada archivo, su implementación, las mejoras introducidas y se incluye el código fuente completo de cada uno.
-1. data.py: Script Básico de Interacción con la API
-Propósito
-data.py es un script inicial que proporciona funciones básicas para interactuar con una API RESTful que gestiona usuarios. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) a través de solicitudes HTTP.
-Implementación
+# Explicación de los Códigos de Cliente API
 
-Librerías: Utiliza requests para solicitudes HTTP y json para manejar datos en formato JSON.
-Funciones:
-crear_usuario(id, nombre, correo): Envía una solicitud POST para crear un usuario.
-listar_usuarios(): Envía una solicitud GET para listar todos los usuarios.
-obtener_usuario(id_usuario): Envía una solicitud GET para obtener un usuario por ID.
-actualizar_usuario(id_usuario, nombre, correo): Envía una solicitud PUT para actualizar un usuario.
-borrar_usuario(id_usuario): Envía una solicitud DELETE para eliminar un usuario.
+Este documento explica los cuatro archivos Python (`data.py`, `data1B.py`, `data2.py`, `data2B.py`) que implementan un cliente para interactuar con una API de gestión de usuarios. Cada archivo representa una iteración progresiva en funcionalidad, desde un script básico hasta una interfaz de línea de comandos (CLI) avanzada con soporte para archivos Excel y registro de resultados. A continuación, se detalla el propósito de cada archivo, su implementación, las mejoras introducidas y se incluye el código fuente completo de cada uno.
 
+## 1. `data.py`: Script Básico de Interacción con la API
 
-Pruebas: Incluye un bloque if __name__ == '__main__' con ejemplos comentados para probar las operaciones.
-Manejo de Errores: Usa try-except con requests.exceptions.RequestException para capturar errores HTTP.
+### Propósito
+`data.py` es un script inicial que proporciona funciones básicas para interactuar con una API RESTful que gestiona usuarios. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) a través de solicitudes HTTP.
 
-Características
+### Implementación
+- **Librerías**: Utiliza `requests` para solicitudes HTTP y `json` para manejar datos en formato JSON.
+- **Funciones**:
+  - `crear_usuario(id, nombre, correo)`: Envía una solicitud POST para crear un usuario.
+  - `listar_usuarios()`: Envía una solicitud GET para listar todos los usuarios.
+  - `obtener_usuario(id_usuario)`: Envía una solicitud GET para obtener un usuario por ID.
+  - `actualizar_usuario(id_usuario, nombre, correo)`: Envía una solicitud PUT para actualizar un usuario.
+  - `borrar_usuario(id_usuario)`: Envía una solicitud DELETE para eliminar un usuario.
+- **Pruebas**: Incluye un bloque `if __name__ == '__main__'` con ejemplos comentados para probar las operaciones.
+- **Manejo de Errores**: Usa `try-except` con `requests.exceptions.RequestException` para capturar errores HTTP.
 
-Simple y funcional, diseñado para pruebas rápidas.
-Salida básica en consola sin formato avanzado.
-No ofrece una interfaz interactiva.
+### Características
+- Simple y funcional, diseñado para pruebas rápidas.
+- Salida básica en consola sin formato avanzado.
+- No ofrece una interfaz interactiva.
 
-Código Fuente
+### Código Fuente
+```python
 import requests  # Para enviar solicitudes HTTP a la API
 import json  # Para manejar datos JSON
 
@@ -114,35 +115,33 @@ if __name__ == '__main__':
     # Borrar un usuario
     borrar_usuario('14')
     listar_usuarios()
+```
 
-2. data1B.py: Interfaz CLI Básica
-Propósito
-data1B.py introduce una interfaz de línea de comandos (CLI) interactiva, permitiendo a los usuarios seleccionar operaciones sin modificar el código.
-Implementación
+## 2. `data1B.py`: Interfaz CLI Básica
 
-Librerías: Agrega colorama para salida coloreada, además de requests y json.
-Clase SimpleAPIClientCLI:
-display_menu(): Muestra un menú con opciones (1-6).
-get_user_input(): Solicita ID, nombre y correo, validando entradas.
-get_user_id(): Solicita solo el ID.
-Métodos CRUD similares a data.py, con salida coloreada.
-run(): Bucle principal para la CLI.
+### Propósito
+`data1B.py` introduce una interfaz de línea de comandos (CLI) interactiva, permitiendo a los usuarios seleccionar operaciones sin modificar el código.
 
+### Implementación
+- **Librerías**: Agrega `colorama` para salida coloreada, además de `requests` y `json`.
+- **Clase `SimpleAPIClientCLI`**:
+  - `display_menu()`: Muestra un menú con opciones (1-6).
+  - `get_user_input()`: Solicita ID, nombre y correo, validando entradas.
+  - `get_user_id()`: Solicita solo el ID.
+  - Métodos CRUD similares a `data.py`, con salida coloreada.
+  - `run()`: Bucle principal para la CLI.
+- **Mejoras**:
+  - Interfaz interactiva.
+  - Salida coloreada para mejor legibilidad.
+  - Validación de entrada.
 
-Mejoras:
-Interfaz interactiva.
-Salida coloreada para mejor legibilidad.
-Validación de entrada.
+### Características
+- Amigable para usuarios no técnicos.
+- Mantiene simplicidad pero mejora la experiencia de usuario.
+- No soporta procesamiento masivo.
 
-
-
-Características
-
-Amigable para usuarios no técnicos.
-Mantiene simplicidad pero mejora la experiencia de usuario.
-No soporta procesamiento masivo.
-
-Código Fuente
+### Código Fuente
+```python
 import requests
 import json
 from colorama import init, Fore, Style
@@ -264,37 +263,33 @@ class SimpleAPIClientCLI:
 if __name__ == '__main__':
     client = SimpleAPIClientCLI()
     client.run()
+```
 
-3. data2.py: Soporte para Archivos Excel
-Propósito
-data2.py añade la capacidad de leer datos de un archivo Excel para operaciones masivas de creación y actualización.
-Implementación
+## 3. `data2.py`: Soporte para Archivos Excel
 
-Librerías: Agrega pandas y os, además de requests, json, colorama.
-Clase SimpleAPIClientCLI:
-Atributos: excel_file para la ruta del archivo Excel.
-Métodos:
-read_excel(): Lee y valida el archivo Excel.
-CRUD methods procesan datos de Excel o entrada manual.
+### Propósito
+`data2.py` añade la capacidad de leer datos de un archivo Excel para operaciones masivas de creación y actualización.
 
+### Implementación
+- **Librerías**: Agrega `pandas` y `os`, además de `requests`, `json`, `colorama`.
+- **Clase `SimpleAPIClientCLI`**:
+  - **Atributos**: `excel_file` para la ruta del archivo Excel.
+  - **Métodos**:
+    - `read_excel()`: Lee y valida el archivo Excel.
+    - CRUD methods procesan datos de Excel o entrada manual.
+  - `run()`: Maneja la opción para configurar `excel_file`.
+- **Mejoras**:
+  - Soporte para operaciones masivas vía Excel.
+  - Validación de archivos Excel.
+  - Mantiene la CLI interactiva.
 
-run(): Maneja la opción para configurar excel_file.
+### Características
+- Procesamiento de grandes volúmenes de datos.
+- Combina entrada manual y automatizada.
+- Sin registro de resultados más allá de la consola.
 
-
-Mejoras:
-Soporte para operaciones masivas vía Excel.
-Validación de archivos Excel.
-Mantiene la CLI interactiva.
-
-
-
-Características
-
-Procesamiento de grandes volúmenes de datos.
-Combina entrada manual y automatizada.
-Sin registro de resultados más allá de la consola.
-
-Código Fuente
+### Código Fuente
+```python
 import requests  # Biblioteca para realizar solicitudes HTTP a la API
 import json  # Biblioteca para manejar datos en formato JSON
 import pandas as pd  # Biblioteca para leer archivos Excel
@@ -486,37 +481,33 @@ if __name__ == '__main__':
     # Crea una instancia del cliente CLI y ejecuta el programa
     client = SimpleAPIClientCLI()
     client.run()
+```
 
-4. data2B.py: Registro de Resultados en Excel
-Propósito
-data2B.py añade registro de resultados en un archivo Excel, mejorando la trazabilidad.
-Implementación
+## 4. `data2B.py`: Registro de Resultados en Excel
 
-Librerías: Igual que data2.py.
-Clase SimpleAPIClientCLI:
-Atributos: results (lista de resultados), output_file (nombre del archivo de salida).
-Métodos:
-save_results(): Guarda resultados en Excel.
-CRUD methods registran resultados en results.
+### Propósito
+`data2B.py` añade registro de resultados en un archivo Excel, mejorando la trazabilidad.
 
+### Implementación
+- **Librerías**: Igual que `data2.py`.
+- **Clase `SimpleAPIClientCLI`**:
+  - **Atributos**: `results` (lista de resultados), `output_file` (nombre del archivo de salida).
+  - **Métodos**:
+    - `save_results()`: Guarda resultados en Excel.
+    - CRUD methods registran resultados en `results`.
+  - `run()`: Maneja la opción para guardar resultados.
+- **Mejoras**:
+  - Registro detallado de operaciones.
+  - Exportación a Excel.
+  - Nombre de archivo de salida configurable.
 
-run(): Maneja la opción para guardar resultados.
+### Características
+- Solución completa con trazabilidad.
+- Ideal para entornos profesionales.
+- Combina todas las funcionalidades anteriores.
 
-
-Mejoras:
-Registro detallado de operaciones.
-Exportación a Excel.
-Nombre de archivo de salida configurable.
-
-
-
-Características
-
-Solución completa con trazabilidad.
-Ideal para entornos profesionales.
-Combina todas las funcionalidades anteriores.
-
-Código Fuente
+### Código Fuente
+```python
 import requests  # Biblioteca para realizar solicitudes HTTP a la API
 import json  # Biblioteca para manejar datos en formato JSON
 import pandas as pd  # Biblioteca para leer y escribir archivos Excel
@@ -776,111 +767,55 @@ if __name__ == '__main__':
     # Crea una instancia del cliente CLI y ejecuta el programa
     client = SimpleAPIClientCLI()
     client.run()
+```
 
-Comparación de los Archivos
+## Comparación de los Archivos
 
+| Característica                     | `data.py` | `data1B.py` | `data2.py` | `data2B.py` |
+|------------------------------------|-----------|-------------|------------|-------------|
+| Interfaz CLI                       | ❌        | ✅          | ✅         | ✅          |
+| Salida coloreada                   | ❌        | ✅          | ✅         | ✅          |
+| Soporte para Excel (entrada)       | ❌        | ❌          | ✅         | ✅          |
+| Registro de resultados en Excel    | ❌        | ❌          | ❌         | ✅          |
+| Validación de entrada              | ❌        | ✅          | ✅         | ✅          |
+| Operaciones masivas                | ❌        | ❌          | ✅         | ✅          |
+| Trazabilidad de operaciones        | ❌        | ❌          | ❌         | ✅          |
 
+## Cómo Usar los Códigos
 
-Característica
-data.py
-data1B.py
-data2.py
-data2B.py
+1. **Requisitos**:
+   - Instalar dependencias: `pip install requests colorama pandas openpyxl`.
+   - Asegurarse de que la URL de la API (`API_URL`) sea correcta y la API esté operativa.
 
+2. **Ejecución**:
+   - **`data.py`**: Descomentar las pruebas en el bloque `if __name__ == '__main__'` y ejecutar `python data.py`.
+   - **`data1B.py`**: Ejecutar `python data1B.py` y seguir el menú interactivo.
+   - **`data2.py`**: Ejecutar `python data2.py`, opcionalmente especificar un archivo Excel con columnas `id`, `nombre`, `correo`.
+   - **`data2B.py`**: Ejecutar `python data2B.py`, usar el menú para realizar operaciones y guardar resultados en un archivo Excel.
 
+3. **Formato del Archivo Excel (para `data2.py` y `data2B.py`)**:
+   - Columnas requeridas: `id` (texto o número), `nombre` (texto), `correo` (texto).
+   - Ejemplo:
+     ```csv
+     id,nombre,correo
+     1,Juan Pérez,juan@ejemplo.com
+     2,María López,maria@ejemplo.com
+     ```
 
-Interfaz CLI
-❌
-✅
-✅
-✅
+4. **Archivo de Salida (`data2B.py`)**:
+   - Contiene columnas como `id`, `nombre`, `correo`, `operation`, `status`, `error` (si aplica).
+   - Ejemplo:
+     ```csv
+     id,nombre,correo,operation,status
+     1,Juan Pérez,juan@ejemplo.com,create,success
+     2,María López,maria@ejemplo.com,update,failed,404 Not Found
+     ```
 
-
-Salida coloreada
-❌
-✅
-✅
-✅
-
-
-Soporte para Excel (entrada)
-❌
-❌
-✅
-✅
-
-
-Registro de resultados en Excel
-❌
-❌
-❌
-✅
-
-
-Validación de entrada
-❌
-✅
-✅
-✅
-
-
-Operaciones masivas
-❌
-❌
-✅
-✅
-
-
-Trazabilidad de operaciones
-❌
-❌
-❌
-✅
-
-
-Cómo Usar los Códigos
-
-Requisitos:
-
-Instalar dependencias: pip install requests colorama pandas openpyxl.
-Asegurarse de que la URL de la API (API_URL) sea correcta y la API esté operativa.
-
-
-Ejecución:
-
-data.py: Descomentar las pruebas en el bloque if __name__ == '__main__' y ejecutar python data.py.
-data1B.py: Ejecutar python data1B.py y seguir el menú interactivo.
-data2.py: Ejecutar python data2.py, opcionalmente especificar un archivo Excel con columnas id, nombre, correo.
-data2B.py: Ejecutar python data2B.py, usar el menú para realizar operaciones y guardar resultados en un archivo Excel.
-
-
-Formato del Archivo Excel (para data2.py y data2B.py):
-
-Columnas requeridas: id (texto o número), nombre (texto), correo (texto).
-Ejemplo:id,nombre,correo
-1,Juan Pérez,juan@ejemplo.com
-2,María López,maria@ejemplo.com
-
-
-
-
-Archivo de Salida (data2B.py):
-
-Contiene columnas como id, nombre, correo, operation, status, error (si aplica).
-Ejemplo:id,nombre,correo,operation,status
-1,Juan Pérez,juan@ejemplo.com,create,success
-2,María López,maria@ejemplo.com,update,failed,404 Not Found
-
-
-
-
-
-Conclusión
+## Conclusión
 Los cuatro scripts representan una evolución en la interacción con una API de usuarios:
-
-data.py es ideal para pruebas iniciales.
-data1B.py mejora la usabilidad con una CLI.
-data2.py añade soporte para operaciones masivas con Excel.
-data2B.py ofrece trazabilidad completa con registro de resultados.
+- `data.py` es ideal para pruebas iniciales.
+- `data1B.py` mejora la usabilidad con una CLI.
+- `data2.py` añade soporte para operaciones masivas con Excel.
+- `data2B.py` ofrece trazabilidad completa con registro de resultados.
 
 Cada versión es adecuada para diferentes necesidades, desde pruebas rápidas hasta aplicaciones robustas. Los códigos son modulares, bien documentados y manejan errores de manera efectiva, haciéndolos aptos para entornos de desarrollo y producción.
