@@ -402,29 +402,4 @@ Crearemos una API HTTP para exponer los métodos GET, POST, PUT y DELETE, todos 
 
 ---
 
-## Paso 6: Monitoreo
 
-1. **Revisar logs en CloudWatch**:
-
-   - En la consola de AWS, busca **CloudWatch**.
-   - Ve a **Logs** &gt; **Grupos de logs**.
-   - Busca `/aws/lambda/transaccionesBancarias`.
-   - Revisa los logs para confirmar operaciones o investigar errores.
-
-2. **Métricas de API Gateway**:
-
-   - En API Gateway, ve a **Métricas**.
-   - Habilita métricas detalladas en el escenario `prod`.
-   - Monitorea latencia y errores (4xx/5xx).
-
----
-
-## Notas Finales
-
-- Este microservicio usa una única función Lambda para todas las operaciones CRUD, lo que simplifica la arquitectura pero puede ser menos modular. Para producción, considera:
-  - Separar las operaciones en funciones individuales para mejor escalabilidad.
-  - Agregar autenticación (ej. Amazon Cognito).
-  - Implementar validaciones (ej. verificar que `monto` sea positivo).
-  - Usar un dominio personalizado en API Gateway.
-- Los comentarios en el código explican cada operación para facilitar la comprensión y mantenimiento.
-- Si encuentras errores, revisa los logs en CloudWatch o verifica los permisos en IAM.
