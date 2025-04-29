@@ -13,6 +13,7 @@ import logging   # Para registrar errores en un archivo
 import uuid      # Para generar identificadores únicos para cada transacción
 from datetime import datetime # Aunque importada, no se usa explícitamente en el código final
 from decimal import Decimal   # Aunque importada, no se usa explícitamente en el código final
+```
 
 Se importan las bibliotecas necesarias para diversas funcionalidades: comunicación web, aleatoriedad, manejo de datos JSON, control de tiempo, registro de eventos y generación de IDs únicos.
 
