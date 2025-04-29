@@ -79,6 +79,7 @@ Crearemos una única función Lambda llamada `transaccionesBancarias` que maneja
    import boto3
    import uuid
    from datetime import datetime
+   from decimal import Decimal
    
    # Inicializamos el cliente de DynamoDB
    dynamodb = boto3.resource('dynamodb')
@@ -103,7 +104,7 @@ Crearemos una única función Lambda llamada `transaccionesBancarias` que maneja
                # Parseamos el cuerpo del evento (JSON) para obtener los datos
                body = json.loads(event['body'])
                id_cuenta = body['idCuenta']  # ID de la cuenta bancaria
-               monto = body['monto']  # Monto de la transacción
+               monto = Decimal(str(body['monto']))  # Monto de la transacción
                tipo = body['tipo']  # Tipo de transacción (DEPOSITO, RETIRO)
                descripcion = body['descripcion']  # Descripción de la transacción
    
