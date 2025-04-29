@@ -175,6 +175,7 @@ Si el número es válido, llama a insertar_datos(n) para iniciar el proceso.
 Usa un try...except ValueError para manejar el caso en que el usuario ingrese algo que no sea un número válido.
 
 9. Bloque de Ejecución Principal
+10. 
 ```python
 if __name__ == "__main__":
     main()
